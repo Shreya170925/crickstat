@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrickStat</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="slideshow.css" /> 
+</head>
+<body>
+
+ 
+
+  <div class="page-wrapper">
+    <div class="content-box">
+
+      <!-- Top Header -->
+      <div class="header-container">
+        <div class="logo">
+          <img src="Preview.png" alt="CricStat Logo" />
+        </div>
+        <div class="logo">CrickStat</div>
+        <div class="top-right">
+          <div class="header-right">
+            <select class="language-select">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+           <button class="login-btn" onclick="location.href='login.html'">Login</button>
+            <button id="themeToggle" class="theme-toggle">🌙</button>
+            <div class="menu-toggle" onclick="openSidebar()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <nav class="main-nav">
+        <ul>
+          <li id="liveScoresBtn"><span class="red-dot"></span>Live Scores</li>
+          <li id="teamsBtn">Teams</li>
+          <li id="rankingsBtn">Rankings</li>
+          <li id="newsBtn">News</li>
+        </ul>
+      </nav>
+
+      <!-- Content Sections -->
+      <div id="liveScoresSection" class="content-section" style="display:none;"></div>
+      <div id="teamsSection" class="content-section" style="display: none;">
+  <h2>Teams</h2>
+  <div class="teams-container">
+    <div class="team-column">
+      <h3>Test Teams</h3>
+      <ul>
+        <li>India</li>
+        <li>Australia</li>
+        <li>England</li>
+        <li>Pakistan</li>
+        <li>South Africa</li>
+        <li>New Zealand</li>
+        <li>Sri Lanka</li>
+        <li>Bangladesh</li>
+        <li>West Indies</li>
+        <li>Zimbabwe</li>
+        <li>Afghanistan</li>
+        <li>Ireland</li>
+      </ul>
+    </div>
+    <div class="team-column">
+      <h3>Associate Teams</h3>
+      <ul>
+        <li>Malaysia</li>
+        <li>Nepal</li>
+        <li>Germany</li>
+        <li>Namibia</li>
+        <li>Denmark</li>
+        <li>Singapore</li>
+        <li>Papua New Guinea</li>
+        <li>Kuwait</li>
+        <li>Vanuatu</li>
+        <li>Jersey</li>
+        <li>Oman</li>
+        <li>Fiji</li>
+      </ul>
+    </div>
+  </div>
+</div>
+     <div id="rankingsSection" class="content-section" style="display: none;">
+  <h2>ICC Rankings</h2>
+  <div class="ranking-cards">
+    <div class="ranking-card">
+      <h3>Test Rankings</h3>
+      <ol>
+        <li>India</li>
+        <li>Australia</li>
+        <li>England</li>
+        <li>South Africa</li>
+        <li>New Zealand</li>
+        <li>Pakistan</li>
+        <li>Sri Lanka</li>
+        <li>West Indies</li>
+        <li>Bangladesh</li>
+        <li>Zimbabwe</li>
+      </ol>
+    </div>
+    <div class="ranking-card">
+      <h3>ODI Rankings</h3>
+      <ol>
+        <li>India</li>
+        <li>Australia</li>
+        <li>England</li>
+        <li>South Africa</li>
+        <li>Pakistan</li>
+        <li>New Zealand</li>
+        <li>Bangladesh</li>
+        <li>Sri Lanka</li>
+        <li>Afghanistan</li>
+        <li>West Indies</li>
+      </ol>
+    </div>
+    <div class="ranking-card">
+      <h3>T20 Rankings</h3>
+      <ol>
+        <li>India</li>
+        <li>England</li>
+        <li>Australia</li>
+        <li>Pakistan</li>
+        <li>South Africa</li>
+        <li>New Zealand</li>
+        <li>West Indies</li>
+        <li>Sri Lanka</li>
+        <li>Afghanistan</li>
+        <li>Bangladesh</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+      <div id="newsSection" class="content-section" style="display:none;">
+        <div class="news-grid"></div>
+      </div> 
+      <!-- Horizontal Card Slider -->
+<div class="news-slider-wrapper">
+  <div class="news-slider" id="newsSlider">
+  </div>
+</div>
+
+      <!-- Sidebar -->
+      <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h3>Topics</h3>
+          <span class="close" onclick="closeSidebar()">&times;</span>
+        </div>
+        <div class="sidebar-content">
+         <div class="sidebar-content">
+           <button onclick="location.href='about.html'">About Us</button>
+           <button onclick="location.href='contact.html'">Contact Us</button>
+           <button onclick="location.href='careers.html'">Careers</button>
+           <button onclick="location.href='advertise.html'">Advertise</button>
+           <button onclick="location.href='privacy.html'">Privacy Policy</button>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      <!-- Overlay -->
+      <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    </div>
+  </div>
+
+  <!-- Theme and Sidebar Scripts -->
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    const themeToggle = document.getElementById("themeToggle");
+
+    function openSidebar() {
+      sidebar.classList.add("active");
+      overlay.style.display = "block";
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("active");
+      overlay.style.display = "none";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+  </script>
+
+  <script src="main.js"></script>
+</body>
+</html>
